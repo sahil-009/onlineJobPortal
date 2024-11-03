@@ -1,21 +1,51 @@
 .grid-background {
-    position: fixed;
+    position: fixed; /* Cover the entire viewport */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient( to right,(255, 255,255, 0.1) 1px, transparent 1px),
-    linear-gradient( to bottom, (255, 255,255, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    z-index: -1;
+    background-color: #121212; /* Base dark background color */
+    overflow: hidden; /* Ensure no overflow */
 }
+
+/* Grid Lines */
 .grid-background::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient( circle at 50% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-image: 
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px; /* Grid size */
+    z-index: 1; /* Keep grid lines above the base background */
+}
+
+/* Animated Radial Gradient Overlay */
+.grid-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 20%, transparent 40%);
+    animation: pulse 6s ease infinite; /* Animation for the background */
+    z-index: 2; /* Ensure it is on top */
+    pointer-events: none; /* Allow clicks through this element */
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.3; /* Middle opacity for a subtle pulse effect */
+    }
+    100% {
+        opacity: 0.1;
+    }
 }
