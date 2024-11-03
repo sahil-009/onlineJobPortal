@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { Button } from './ui/button';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 const Header = () => {
   return (
     <header className="p-4 bg-gray-900 text-white">
@@ -18,6 +19,15 @@ const Header = () => {
         </Link>
 
         <Button variant="outline">Login</Button>
+
+        <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+
+
       </nav>
 
 

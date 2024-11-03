@@ -15,11 +15,11 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { path: "/", element: <LandingPage /> },
-      { path: "/job/:id", element: <JobPage /> },  // Use lowercase for consistency
+      { path: "/job/:id", element: <JobPage /> },  
       { path: "/post-job", element: <PostJob /> },
       { path: "/saved-jobs", element: <SavedJobs /> },
       { path: "/my-jobs", element: <MyJobs /> },
-      { path: "/onboarding", element: <OnBoarding /> }, // Use lowercase for consistency
+      { path: "/onboarding", element: <OnBoarding /> }, 
     ],
   },
 ]);
