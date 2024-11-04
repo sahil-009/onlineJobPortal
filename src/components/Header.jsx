@@ -4,8 +4,8 @@ import { Button } from './ui/button';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 const Header = () => {
   return (
-    <header className="p-4 bg-gray-900 text-white">
-      <h1 className="text-2xl">Job Portal</h1>
+    <header className="p-4 bg-gray-800 text-white">
+      {/* <h1 className="text-2xl">Job Portal</h1> */}
       {/* <nav>
         <Link to="/" className="mr-4">Home</Link>
         <Link to="/saved-jobs" className="mr-4">Saved Jobs</Link>
@@ -13,19 +13,19 @@ const Header = () => {
         <Link to="/post-job" className="mr-4">Post Job</Link>
       </nav> */}
 
-      <nav className='py-4 flex justify-between'>
+      <nav className='py-1 flex justify-between'>
         <Link>
         <img src="/logo.png" className='h-20'/>
         </Link>
 
         <Button variant="outline">Login</Button>
 
-        <SignedOut>
+        {/* <SignedOut>
         <SignInButton />
       </SignedOut>
       <SignedIn>
         <UserButton />
-      </SignedIn>
+      </SignedIn> */}
 
 
       </nav>
