@@ -1,6 +1,18 @@
 import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import Autoplay from 'embla-carousel-react'
+const companies = [
+  { name: 'Amazon', id: 1, path: '/companies/amazon.svg' },
+  { name: 'Atlassian', id: 2, path: '/companies/atlassian.svg' },
+  { name: 'Google', id: 3, path: '/companies/google.webp' },
+  { name: 'IBM', id: 4, path: '/companies/ibm.svg' },
+  { name: 'Meta', id: 5, path: '/companies/meta.svg' },
+  { name: 'Microsoft', id: 6, path: '/companies/microsoft.webp' },
+  { name: 'Netflix', id: 7, path: '/companies/netflix.png' },
+  { name: 'Uber', id: 8, path: '/companies/uber.svg' },
+];
 
 const Landing = () => {
   return (
@@ -35,6 +47,18 @@ const Landing = () => {
             </Button>
           </Link>
         </div>
+
+        <Carousel
+        // plugins={[Autoplay({delay: 2000})]}
+         className="w-full py-10" autoplay={true} autoplaySpeed={3000}>
+          <CarouselContent>
+            {companies.map(({ name, id, path }) => (
+              <CarouselItem key={id} className="basis-1/3 lg:basis-1/6">
+                <img src={path} alt={name} className="h-9 sm:h-14 object-contain" />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </main>
   );
