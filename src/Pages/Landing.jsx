@@ -1,18 +1,8 @@
 import { Button } from '@/components/ui/button';
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Link } from 'react-router-dom';
-// import Autoplay from 'embla-carousel-react'
-const companies = [
-  { name: 'Amazon', id: 1, path: '/companies/amazon.svg' },
-  { name: 'Atlassian', id: 2, path: '/companies/atlassian.svg' },
-  { name: 'Google', id: 3, path: '/companies/google.webp' },
-  { name: 'IBM', id: 4, path: '/companies/ibm.svg' },
-  { name: 'Meta', id: 5, path: '/companies/meta.svg' },
-  { name: 'Microsoft', id: 6, path: '/companies/microsoft.webp' },
-  { name: 'Netflix', id: 7, path: '/companies/netflix.png' },
-  { name: 'Uber', id: 8, path: '/companies/uber.svg' },
-];
+import companies from '../data/companies.json';
 
 const Landing = () => {
   return (
@@ -48,16 +38,24 @@ const Landing = () => {
           </Link>
         </div>
 
-        <Carousel
-        // plugins={[Autoplay({delay: 2000})]}
-         className="w-full py-10" autoplay={true} autoplaySpeed={3000}>
-          <CarouselContent>
+        {/* Carousel Section */}
+        <Carousel className="w-full py-10">
+          <CarouselContent className="flex gap-4">
             {companies.map(({ name, id, path }) => (
-              <CarouselItem key={id} className="basis-1/3 lg:basis-1/6">
-                <img src={path} alt={name} className="h-9 sm:h-14 object-contain" />
+              <CarouselItem key={id} className="flex items-center justify-center">
+                <Card>
+                  <CardContent className="flex flex-col items-center p-6">
+                    <img src={path} alt={name} className="w-24 h-24 object-contain" />
+                    <span className="text-xl font-semibold mt-4">{name}</span>
+                  </CardContent>
+                </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
+
+          {/* Optional: Carousel Controls */}
+          <CarouselPrevious className="absolute left-0">Prev</CarouselPrevious>
+          <CarouselNext className="absolute right-0">Next</CarouselNext>
         </Carousel>
       </div>
     </main>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
+
 import { Button } from './ui/button';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 const Header = () => {
@@ -17,17 +17,25 @@ const Header = () => {
         <Link>
         <img src="/logo.png" className='h-20'/>
         </Link>
-
+        <div className='flex gap-8'>
+      <SignedOut>
         <Button variant="outline">Login</Button>
-
-        {/* <SignedOut>
-        <SignInButton />
+        
       </SignedOut>
+      <SignInButton />
+        <Link to="/PostJob">
+        <Button variant="destructive">
+          Post Job
+        </Button>
+        
+
+          </Button>
+        </Link>
+      
       <SignedIn>
         <UserButton />
-      </SignedIn> */}
-
-
+      </SignedIn>
+        </div>
       </nav>
 
 
